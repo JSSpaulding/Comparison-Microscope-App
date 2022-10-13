@@ -40,19 +40,19 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   
   library(magick)
-  path <- normalizePath(file.path('./cc-images'))
+  path <- "https://github.com/JSSpaulding/Comparison-Microscope-App/tree/main/cc-images/"
   
-  K1 <- magick::image_read(paste0(path,'\\ccid_S1.jpg'))
-  K2 <- magick::image_read(paste0(path,'\\ccid_S2.jpg'))
-  K3 <- magick::image_read(paste0(path,'\\ccid_S3.jpg'))
-  K4 <- magick::image_read(paste0(path,'\\ccid_S4.jpg'))
-  K5 <- magick::image_read(paste0(path,'\\ccid_S5.jpg'))
-  K6 <- magick::image_read(paste0(path,'\\ccid_S6.jpg'))
-  K7 <- magick::image_read(paste0(path,'\\ccid_S7.jpg'))
-  K8 <- magick::image_read(paste0(path,'\\ccid_S8.jpg'))
+  # image <- magick::image_read(paste0(path,'ccid_S1.jpg'))
+  # K2 <- magick::image_read(paste0(path,'ccid_S2.jpg'))
+  # K3 <- magick::image_read(paste0(path,'ccid_S3.jpg'))
+  # K4 <- magick::image_read(paste0(path,'ccid_S4.jpg'))
+  # K5 <- magick::image_read(paste0(path,'ccid_S5.jpg'))
+  # K6 <- magick::image_read(paste0(path,'ccid_S6.jpg'))
+  # K7 <- magick::image_read(paste0(path,'ccid_S7.jpg'))
+  # K8 <- magick::image_read(paste0(path,'ccid_S8.jpg'))
   
   image <- observeEvent(input$Ksample, {
-    if(input$Ksample == "Known 1"){image <- K1}
+    if(input$Ksample == "Known 1"){image <- magick::image_read(paste0(path,'ccid_S1.jpg'))}
   })
   
   
@@ -80,7 +80,7 @@ server <- function(input, output, session) {
   # Start with img
   #image <- reactive({magick::image_read(paste0(path, '\\',req(Limage()),'.jpg'))})
   #image <- image_read(paste0(path, '\\Known_1.jpg'))
-  image2 <- image_read(paste0(path, '\\ccid_S8.jpg'))
+  #image2 <- image_read(paste0(path, '\\ccid_S8.jpg'))
   
   # When uploading new image
   # observeEvent(input$Ksample, {
